@@ -17,8 +17,8 @@ public class Events extends Activity {
 
     ArrayList prgmName;
     ListView list;
-    public static Integer[] prgmImages={R.drawable.cse,R.drawable.ece,R.drawable.eee,R.drawable.ise,R.drawable.mech,R.drawable.tc};
-    public static String [] prgmNameList={"COMPUTER ENGINEERING","ELECTRONIC AND COMMUNICATION ENGINEERING","ELECTRICAL AND ELECTRONIC ENGINEERING","INFORMATION SCIENCE AND ENGINEERING","MECHANICAL ENGINEERING","TELECOMMUNICATION ENGINEERING"};
+    public static Integer[] prgmImages={R.drawable.cse,R.drawable.ec,R.drawable.mechanical,R.drawable.chem};
+    public static String [] prgmNameList={"COMPUTER ENGINEERING","ELECTRONIC AND COMMUNICATION ENGINEERING","MECHANICAL ENGINEERING","CHEMICAL ENGINEERING"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,7 @@ public class Events extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                String Slecteditem = prgmNameList[+position];
+                String Slecteditem = prgmNameList[position];
                 Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
 
             }
