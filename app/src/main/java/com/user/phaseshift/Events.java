@@ -1,32 +1,39 @@
 package com.user.phaseshift;
 
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Events extends Activity {
+public class Events extends AppCompatActivity {
 
     ListView lv;
     Context context;
 
     ArrayList prgmName;
     ListView list;
-    public static Integer[] prgmImages={R.drawable.cse,R.drawable.ec,R.drawable.mechanical,R.drawable.chem};
-    public static String [] prgmNameList={"COMPUTER ENGINEERING","ELECTRONIC AND COMMUNICATION ENGINEERING","MECHANICAL ENGINEERING","CHEMICAL ENGINEERING"};
+    public static Integer[] prgmImages={R.drawable.answer,R.drawable.engineer,R.drawable.learn,R.drawable.code,R.drawable.create,R.drawable.play};
+    public static String [] prgmNameList={"ANSWER","ENGINEER","LEARN","CODE","CREATE","PLAY"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Events");
 
         CustomAdapter adapter = new CustomAdapter(this, prgmNameList, prgmImages);
         list = (ListView) findViewById(R.id.list);
         list.setAdapter(adapter);
+
+
         list.setDivider(null);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -34,8 +41,9 @@ public class Events extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                String Slecteditem = prgmNameList[position];
-                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getApplicationContext(),ListEvents.class);
+                i.putExtra("value","answer");
+                startActivity(i);
 
             }
         });
