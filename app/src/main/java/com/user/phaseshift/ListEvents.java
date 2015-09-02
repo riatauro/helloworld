@@ -1,6 +1,7 @@
 package com.user.phaseshift;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -8,7 +9,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -33,13 +33,15 @@ public class ListEvents extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.list_main);
+        Intent i=getIntent();
+       String value= i.getStringExtra("value");
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        Parse.enableLocalDatastore(this);
+      //  Parse.enableLocalDatastore(this);
 
-        Parse.initialize(this, "bA2jSzNoYuZ5XOdcXzpC8LUhFoOLZvIXiRUlGS4Y", "SUgwli06qEgpFmQob5d56eFZsisbhSyMtdjDiGCD");
+      //  Parse.initialize(this, "bA2jSzNoYuZ5XOdcXzpC8LUhFoOLZvIXiRUlGS4Y", "SUgwli06qEgpFmQob5d56eFZsisbhSyMtdjDiGCD");
         ParseQuery query = new ParseQuery("ps");
         //  query.orderByDescending("title");
-        query.whereEqualTo("category", "answer");
+        query.whereEqualTo("category", value);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> categories, ParseException e) {
                 if (e == null) {
@@ -54,10 +56,15 @@ public class ListEvents extends Activity {
                     Toast.makeText(getApplicationContext(), "Error",
                             Toast.LENGTH_LONG).show();
                 }
+                Log.d("Hi", "Done");
+                ListView lv = (ListView) findViewById(R.id.listview);
+                Log.d("Hi", "Done");
+                //  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, foos);
+                lv.setAdapter(adapter);
+                Log.d("Hi", "Done");
             }
+
         });
-        ListView lv = (ListView) findViewById(R.id.listview);
-        //  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, foos);
-        lv.setAdapter(adapter);
+
     }
 }

@@ -19,7 +19,7 @@ public class Events extends AppCompatActivity {
     ArrayList prgmName;
     ListView list;
     public static Integer[] prgmImages={R.drawable.answer,R.drawable.engineer,R.drawable.learn,R.drawable.code,R.drawable.create,R.drawable.play};
-    public static String [] prgmNameList={"ANSWER","ENGINEER","LEARN","CODE","CREATE","PLAY"};
+    public static String [] prgmNameList={"answer","engineer","learn","code","create","play"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +42,7 @@ public class Events extends AppCompatActivity {
                                     int position, long id) {
                 // TODO Auto-generated method stub
                 Intent i=new Intent(getApplicationContext(),ListEvents.class);
-                i.putExtra("value","answer");
+                i.putExtra("value",prgmNameList[position]);
                 startActivity(i);
 
             }
