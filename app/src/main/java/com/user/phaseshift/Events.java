@@ -43,6 +43,7 @@ public class Events extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 Intent i=new Intent(getApplicationContext(),ListEvents.class);
                 i.putExtra("value",prgmNameList[position]);
+                i.putExtra("position",position);
                 startActivity(i);
 
             }

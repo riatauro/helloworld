@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ListEvents extends Activity {
 
     ArrayList<String> list = new ArrayList<String>();
+    ListView lv;
 
     /** Declaring an ArrayAdapter to set items to ListView */
     ArrayAdapter<String> adapter;
@@ -30,11 +33,17 @@ public class ListEvents extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int[] images={R.drawable.answer1,R.drawable.engineer1,R.drawable.create1,R.drawable.code1,R.drawable.learn1,R.drawable.play1};
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.list_main);
+
         Intent i=getIntent();
        String value= i.getStringExtra("value");
+        int positon=i.getIntExtra("position", 0);
+        GIFView gifView=new GIFView(this,positon);
+        GIFView gf=(GIFView)findViewById(R.id.view);
+        gf.setGIFResource(positon);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
       //  Parse.enableLocalDatastore(this);
 
@@ -57,10 +66,29 @@ public class ListEvents extends Activity {
                             Toast.LENGTH_LONG).show();
                 }
                 Log.d("Hi", "Done");
-                ListView lv = (ListView) findViewById(R.id.listview);
+                 lv = (ListView) findViewById(R.id.listview);
                 Log.d("Hi", "Done");
                 //  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, foos);
                 lv.setAdapter(adapter);
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+
+                        // ListView Clicked item index
+                        int itemPosition = position;
+
+                        // ListView Clicked item value
+                        String itemValue = (String)lv.getItemAtPosition(position);
+
+                        Intent i=new Intent(getApplicationContext(),DetailEvents.class);
+                        i.putExtra("eventName",itemValue);
+                        startActivity(i);
+
+                    }
+
+                });
                 Log.d("Hi", "Done");
             }
 
