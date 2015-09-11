@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 
 public class Schedule extends AppCompatActivity {
+    TabLayout.Tab a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,8 @@ public class Schedule extends AppCompatActivity {
         getSupportActionBar().setTitle("Schedule");
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("19 SEP"));
+        tabLayout.addTab((a=tabLayout.newTab()).setText("19 SEP"));
+
         tabLayout.addTab(tabLayout.newTab().setText("20 sep"));
        // tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

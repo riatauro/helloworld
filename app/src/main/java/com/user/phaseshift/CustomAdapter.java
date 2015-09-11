@@ -1,13 +1,13 @@
 package com.user.phaseshift;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class CustomAdapter extends ArrayAdapter<String> {
@@ -27,17 +27,21 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     public View getView(int position,View view,ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.list_row, null,true);
+        View rowView=inflater.inflate(R.layout.list_row, null, true);
 
-        //TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_in);
+        TextView txtTitle = (TextView) rowView.findViewById(R.id.icon);
+        //ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+       // Animation animation = AnimationUtils.loadAnimation(context, R.anim.fade_in);
+        txtTitle.setText(itemname[position]);
+        txtTitle.setTextColor(Color.WHITE);
+        txtTitle.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+
 
        // txtTitle.setText(itemname[position]);
-        imageView.setImageResource(imgid[position]);
-        animation.setDuration(500);
-        rowView.startAnimation(animation);
-        animation = null;
+        //imageView.setImageResource(imgid[position]);
+//        animation.setDuration(500);
+//        rowView.startAnimation(animation);
+//        animation = null;
 
         return rowView;
 

@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -27,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
         btn2 = (Button) findViewById(R.id.btn2);
         btn3 = (Button) findViewById(R.id.btn3);
         btn4 = (Button) findViewById(R.id.btn4);
-        Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.ltor);
-        img.setAnimation(rotate);
-        btn1.setAnimation(rotate);
-        btn2.setAnimation(rotate);
-        btn3.setAnimation(rotate);
-        btn4.setAnimation(rotate);
+//       // Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.ltor);
+//        img.setAnimation(rotate);
+//        btn1.setAnimation(rotate);
+//        btn2.setAnimation(rotate);
+//        btn3.setAnimation(rotate);
+//        btn4.setAnimation(rotate);
 
 //        TranslateAnimation animation = new TranslateAnimation(0.0f, 400.0f,
 //                0.0f, 0.0f);
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 view.startAnimation(buttonClick);
-                Intent i=new Intent(getApplicationContext(),Schedule.class);
+                Intent i=new Intent(getApplicationContext(),appTeam.class);
                 startActivity(i);
             }
         });

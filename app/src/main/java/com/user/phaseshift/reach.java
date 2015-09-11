@@ -42,8 +42,8 @@ public class reach extends AppCompatActivity implements OnMapReadyCallback{
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
 
             map.addMarker(new MarkerOptions()
-                    .title("Sydney")
-                    .snippet("The most populous city in Australia.")
+                    .title("BMSCE")
+                    .snippet("Basvangudi.")
                     .position(sydney));
         }
 

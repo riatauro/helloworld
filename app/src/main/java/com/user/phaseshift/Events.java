@@ -19,7 +19,9 @@ public class Events extends AppCompatActivity {
     ArrayList prgmName;
     ListView list;
     public static Integer[] prgmImages={R.drawable.answer,R.drawable.engineer,R.drawable.learn,R.drawable.code,R.drawable.create,R.drawable.play};
-    public static String [] prgmNameList={"answer","engineer","learn","code","create","play"};
+    public static String [] prgmNameList={"ANSWER","ENGINEER","LEARN","CODE","CREATE","PLAY","SEMINARS","WORKSHOP"};
+
+    public static String[] prgm={"answer","engineer","learn","code","create","play","seminars","workshop"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +36,21 @@ public class Events extends AppCompatActivity {
         list.setAdapter(adapter);
 
 
-        list.setDivider(null);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                Intent i=new Intent(getApplicationContext(),ListEvents.class);
-                i.putExtra("value",prgmNameList[position]);
+                Intent i;
+                if(position==6)
+                {
+                     i=new Intent(getApplicationContext(),seminar.class);
+                }
+                else {
+                    i = new Intent(getApplicationContext(), ListEvents.class);
+                }
+                i.putExtra("value",prgm[position]);
                 i.putExtra("position",position);
                 startActivity(i);
 
