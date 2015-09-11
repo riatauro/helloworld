@@ -47,6 +47,11 @@ public class Events extends AppCompatActivity {
                 {
                      i=new Intent(getApplicationContext(),seminar.class);
                 }
+                else if(position==7)
+                    {
+                        i=new Intent(getApplicationContext(),workshop.class);
+                    }
+
                 else {
                     i = new Intent(getApplicationContext(), ListEvents.class);
                 }

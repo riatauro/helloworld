@@ -43,7 +43,9 @@
 
         <activity android:name=".RegisterEvents"/>
         <activity android:name=".seminar"/>
+        <activity android:name=".semDetails"/>
         <activity android:name=".workshop"/>
+        <activity android:name=".WorkshopDet"/>
     </application>
 
 

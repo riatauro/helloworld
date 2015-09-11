@@ -10,7 +10,7 @@ import android.view.View;
 
 public class GIFView extends View {
     public Movie mMovie;
-    int[] images={R.drawable.ans,R.drawable.eng,R.drawable.lear,R.drawable.wiz,R.drawable.bulb,R.drawable.playrobot,R.drawable.playrobot,R.drawable.playrobot};
+    int[] images={R.drawable.ans,R.drawable.eng,R.drawable.lear,R.drawable.wiz,R.drawable.bulb,R.drawable.playrobot,R.drawable.seminar,R.drawable.workshop};
     public long movieStart;
     private int gifId;
     public GIFView(Context context,int id) {
