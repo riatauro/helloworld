@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 view.startAnimation(buttonClick);
-                Intent i=new Intent(getApplicationContext(),Schedule.class);
+                Intent i=new Intent(getApplicationContext(),About.class);
                 startActivity(i);
             }
         });

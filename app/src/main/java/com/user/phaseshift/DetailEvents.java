@@ -35,6 +35,9 @@ public class DetailEvents extends ActionBarActivity {
     public TextView eventDetailRegistrationFee;
     public TextView eventDetailNoOfTeamMembers;
     public TextView eventDetailPrizeMoney;
+    public TextView eventDate;
+    public TextView eventDetailTime;
+    public TextView eventDetailVenue;
     public TextView loading;
     public Button register;
     public ScrollView scrollview;
@@ -53,6 +56,10 @@ public class DetailEvents extends ActionBarActivity {
         eventDetailRegistrationFee = (TextView) findViewById(R.id.eventDetailRegistrationFee);
         eventDetailNoOfTeamMembers = (TextView) findViewById(R.id.eventDetailNoOfTeamMembers);
         eventDetailPrizeMoney = (TextView) findViewById(R.id.eventDetailPrizeMoney);
+        eventDetailVenue = (TextView) findViewById(R.id.eventDetailVenue);
+        eventDetailTime = (TextView) findViewById(R.id.eventDetailTime);
+        eventDate = (TextView) findViewById(R.id.eventDate);
+
         loading = (TextView) findViewById(R.id.loading);
         register = (Button) findViewById(R.id.eventDetailRegistrationButton);
         scrollview = (ScrollView) findViewById(R.id.scrollView);
@@ -81,7 +88,7 @@ public class DetailEvents extends ActionBarActivity {
                         eventDetailEventName.setTextColor(Color.parseColor("#ffa41c36"));
                         eventDetailEventDescription.setText(eventParseObject.getString("description"));
                         eventDetailEventDescription.setTextColor(Color.WHITE);
-                        eventDetailCoordinatorA.setText(Html.fromHtml("<b>Co-ordinator:</b> " + eventParseObject.getString("cood_1") + "\n<b>Contact:</b> " +
+                        eventDetailCoordinatorA.setText(Html.fromHtml("<b>Co-ordinator:</b> " + eventParseObject.getString("cood_1") + "<br></br><b>Contact:</b> " +
                                 eventParseObject.getString("phone")));
                         eventDetailCoordinatorA.setTextColor(Color.WHITE);
                         eventDetailRegistrationFee.setText(Html.fromHtml("<b>Registration Fee:</b> Rs " + eventParseObject.getString("fee")));
@@ -91,8 +98,11 @@ public class DetailEvents extends ActionBarActivity {
                         eventDetailPrizeMoney.setText("First Place: " + eventParseObject.getString("prize_1") +
                                 "\nSecond Place: " + eventParseObject.getString("prize_2") + "\nThird Place: " + eventParseObject.getString("prize_3"));
                         eventDetailPrizeMoney.setTextColor(Color.WHITE);
+                        eventDate.setText(eventParseObject.getString("date"));
+                        eventDetailTime.setText(eventParseObject.getString("start_time")+"-"+eventParseObject.getString("end_time"));
+                        eventDetailVenue.setText(eventParseObject.getString("venue"));
 
-                        loading.setVisibility(View.GONE);
+                                loading.setVisibility(View.GONE);
                         scrollview.setVisibility(View.VISIBLE);
                         register.setVisibility(View.VISIBLE);
 

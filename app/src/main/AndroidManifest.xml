@@ -46,6 +46,7 @@
         <activity android:name=".semDetails"/>
         <activity android:name=".workshop"/>
         <activity android:name=".WorkshopDet"/>
+        <activity android:name=".About"/>
     </application>
 
 
